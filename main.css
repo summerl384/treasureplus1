@@ -1,0 +1,62 @@
+/* 设置页面背景图片 */
+body {
+    background-image: url('fj.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#output {
+    white-space: pre-wrap;
+    max-width: 80%;
+    text-align: center;
+}
+
+#buttons-container {
+    position: fixed;
+    bottom: 50px; /* 调高位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px; /* 增加按钮之间的间隔 */
+    width: 300px; /* 增加宽度 */
+    height: 100px; /* 增加高度 */
+    /*background-color: #f0f0f0; !* 添加背景颜色 *!*/
+    border-radius: 10px; /* 添加圆角 */
+    justify-content: center; /* 水平居中按钮 */
+    align-items: center; /* 垂直居中按钮 */
+    /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); !* 添加阴影 *!*/
+}
+
+#elements-container {
+    font-size: 20px;
+    font-weight: bold;
+    color: #146173; /* 棕色字体 */
+    background-color: rgba(255, 255, 255, 0.5); /* 半透明背景 */
+    position: absolute;
+    top: 33%; /* 界面高度的1/3 */
+    left: 0; /* 界面左侧 */
+    width: 15%; /* 界面宽度的1/4 */
+    padding: 10px; /* 添加内边距 */
+    border-radius: 5px; /* 圆角 */
+    height: auto; /* 高度自适应内容 */
+    max-height: 75%; /* 界面高度的2/3 */
+    overflow: auto; /* 如果内容超出，显示滚动条 */
+}
+
+
+#decoding {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    color: red;
+    display: none;
+}

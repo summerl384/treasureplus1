@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寻宝游戏</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px;
+        }
+        .prompt {
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #music-controls {
+            position: fixed;
+            top: 50px; /* 距离顶部10px */
+            right: 10px; /* 距离右边10px */
+            text-align: right; /* 按钮右对齐 */
+        }
+        /* 可以根据需要调整输入框和按钮的样式 */
+    </style>
+</head>
+<body>
+<audio id="background-music" loop autoplay>
+    <source src="music.mp3" type="audio/mp3">
+</audio>
+    <div class="header">解谜游戏</div>
+    <!-- 显示当前玩家的信息 -->
+    <div id="output" class="prompt" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+    <div id="searching" class="prompt" style="position: fixed; top: 10px; right: 10px;"></div>
+
+    <!-- 用户信息输入区域 -->
+    <div id="user-info">
+        <label for="nickname">昵称：</label>
+        <input type="text" id="nickname" placeholder="请输入昵称">
+        <label for="player-id">玩家ID：</label>
+        <input type="text" id="player-id" placeholder="请输入您的ID">
+        <button id="start-game">开始游戏</button>
+    </div>
+<div id="music-controls">
+    <button onclick="document.getElementById('background-music').play()">播放音乐</button>
+    <button onclick="document.getElementById('background-music').pause()">暂停音乐</button>
+</div>
+
+    <!-- 显示游戏历史 -->
+    <div id="game-history" style="position: fixed; bottom: 20px; left: 10px; color: #fff; font-size: 16px;">
+        <button id="logout-button">退出登录</button>
+        <p id="player-info"></p>
+    </div>
+
+    <!-- 游戏操作区域 -->
+    <div id="buttons-container" style="display: none;">
+        <button id="bed">床</button>
+        <button id="desk">书桌</button>
+        <button id="wardrobe">衣柜</button>
+        <button id="guitar">吉他</button>
+    </div>
+    <div id="decoding" class="prompt">正在解码...</div>
+    <img id="image-display" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+    <div id="fail-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; border-radius: 10px;">
+        糟糕！时间到了，还没找到小明，看来只能请他吃辣条了。
+        <button id="restart-button">重新开始</button>
+    </div>
+    <div id="success-popup" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(0, 0, 0, 0.8); color: #fff; padding: 20px; border-radius: 10px;">
+         恭喜你们猜对了小明的假期去向！小明去了株洲方特
+        <button id="restart-game-button">重新开始游戏</button>
+    </div>
+    <div id="elements-container"></div>
+
+    <script src="treasure.js"></script>
+</body>
+</html>
